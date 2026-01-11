@@ -2,7 +2,17 @@
 
 My personal dotfiles managed with GNU stow.
 
-## Installation
+## Quick Setup
+
+```bash
+git clone https://github.com/Varuas37/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./setup.sh
+```
+
+Then start tmux and press `Ctrl-s + Shift-I` to install plugins.
+
+## Manual Installation
 
 1. Install dependencies:
    ```bash
