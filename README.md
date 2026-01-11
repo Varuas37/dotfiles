@@ -4,15 +4,32 @@ My personal dotfiles managed with GNU stow.
 
 ## Installation
 
-1. Clone this repository:
+1. Install dependencies:
+   ```bash
+   # macOS
+   brew install tmux stow
+   ```
+
+2. Clone this repository:
    ```bash
    git clone https://github.com/Varuas37/dotfiles.git ~/dotfiles
    cd ~/dotfiles
    ```
 
-2. Use stow to symlink configurations:
+3. Use stow to symlink configurations:
    ```bash
    stow tmux
+   ```
+
+4. Install tpm (Tmux Plugin Manager):
+   ```bash
+   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+   ```
+
+5. Start tmux and install plugins:
+   ```bash
+   tmux
+   # Inside tmux, press: Ctrl-s + Shift-I (capital I) to install plugins
    ```
 
 ## Configurations
