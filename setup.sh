@@ -33,6 +33,20 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     else
         echo "  ✓ stow already installed"
     fi
+
+    if ! command -v atuin &> /dev/null; then
+        echo "  Installing atuin..."
+        bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+    else
+        echo "  ✓ atuin already installed"
+    fi
+
+    if ! command -v opencode &> /dev/null; then
+        echo "  Installing opencode..."
+        curl -fsSL https://opencode.ai/install | bash
+    else
+        echo "  ✓ opencode already installed"
+    fi
 else
     echo "⚠️  Non-macOS detected. Please manually install tmux and stow."
     echo ""
