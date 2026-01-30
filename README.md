@@ -10,46 +10,65 @@ cd ~/dotfiles
 ./setup.sh
 ```
 
-Then start tmux and press `Ctrl-s + Shift-I` to install plugins.
+## What Gets Installed
+
+- **tmux** - terminal multiplexer with Catppuccin theme
+- **sketchybar** - custom macOS menu bar
+- **aerospace** - tiling window manager
+- **ghostty** - GPU-accelerated terminal
+- **borders** - window border highlights
+- **atuin** - shell history sync
+- **starship** - cross-shell prompt
+
+## Configurations
+
+### tmux
+- Custom prefix: `Ctrl-s`
+- Vim-style pane navigation: `h/j/k/l`
+- Timezone toggle: `Ctrl-s + t`
+- Reload config: `Ctrl-s + r`
+
+### aerospace (tiling window manager)
+- `alt-h/j/k/l` - Focus windows
+- `alt-1-5` - Switch workspaces
+- `alt-e` - Toggle tiles layout (side by side)
+- `alt-comma` - Toggle accordion layout (stacked fullscreen)
+- `alt-f` - Fullscreen toggle
+- `alt-shift-h/j/k/l` - Move windows
+
+### ghostty
+- Zed-inspired dark theme
+- 70% transparent background with blur
+
+### sketchybar
+- Workspace indicators with aerospace integration
+- Battery, CPU, clock widgets
 
 ## Manual Installation
 
 1. Install dependencies:
    ```bash
-   # macOS
    brew install tmux stow
+   brew tap FelixKratz/formulae
+   brew install sketchybar borders
+   brew install --cask nikitabobko/tap/aerospace ghostty
    ```
 
-2. Clone this repository:
+2. Clone and stow:
    ```bash
    git clone https://github.com/Varuas37/dotfiles.git ~/dotfiles
    cd ~/dotfiles
+   stow tmux aerospace sketchybar ghostty
    ```
 
-3. Use stow to symlink configurations:
+3. Start services:
    ```bash
-   stow tmux
+   brew services start sketchybar
+   open -a AeroSpace
    ```
-
-4. Install tpm (Tmux Plugin Manager):
-   ```bash
-   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-   ```
-
-5. Start tmux and install plugins:
-   ```bash
-   tmux
-   # Inside tmux, press: Ctrl-s + Shift-I (capital I) to install plugins
-   ```
-
-## Configurations
-
-- **tmux**: Tmux configuration with Catppuccin theme, custom keybindings, and plugins managed by tpm
-  - Custom prefix: `Ctrl-s`
-  - Vim-style pane navigation: `h/j/k/l`
-  - Timezone toggle: `Ctrl-s + t` (toggles between PST and UTC)
 
 ## Requirements
 
+- macOS
+- Homebrew
 - GNU stow
-- tmux (with tpm for plugin management)
