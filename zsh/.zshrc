@@ -14,4 +14,5 @@ eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
 
 # OpenClaw completion (now that compinit is loaded)
-source <(openclaw completion --shell zsh)
+# Suppress Node.js deprecation warnings from openclaw
+source <(NODE_NO_WARNINGS=1 openclaw completion --shell zsh)
