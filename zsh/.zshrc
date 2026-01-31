@@ -1,12 +1,17 @@
-
+# Set up PATH first
 . "$HOME/.local/bin/env"
+. "$HOME/.atuin/bin/env"
+export PATH=/Users/shadow/.opencode/bin:$PATH
 
-# prompt
+# Initialize completion system (fixes compdef errors)
+autoload -Uz compinit
+compinit -C  # -C skips security check for faster loading
+
+# Prompt (fast, async)
 eval "$(starship init zsh)"
-# https://atuin.sh/ - stores shell history
+
+# Atuin shell history (now that it's in PATH)
 eval "$(atuin init zsh)"
 
-. "$HOME/.atuin/bin/env"
-
-# opencode
-export PATH=/Users/shadow/.opencode/bin:$PATH
+# OpenClaw completion (now that compinit is loaded)
+source <(openclaw completion --shell zsh)
