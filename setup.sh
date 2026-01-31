@@ -81,6 +81,44 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         echo "  ghostty already installed"
     fi
 
+    # Install neovim
+    if ! command -v nvim &> /dev/null; then
+        echo "  Installing neovim..."
+        brew install neovim
+    else
+        echo "  neovim already installed"
+    fi
+
+    # Install fonts for sketchybar and terminal
+    echo ""
+    echo "Installing fonts..."
+
+    FONT_DIR="$HOME/Library/Fonts"
+
+    # Install sketchybar-app-font
+    if [ ! -f "$FONT_DIR/sketchybar-app-font.ttf" ]; then
+        echo "  Installing sketchybar-app-font..."
+        curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.28/sketchybar-app-font.ttf -o "$FONT_DIR/sketchybar-app-font.ttf"
+    else
+        echo "  sketchybar-app-font already installed"
+    fi
+
+    # Install Hack Nerd Font
+    if ! ls "$FONT_DIR"/HackNerdFont* &> /dev/null; then
+        echo "  Installing Hack Nerd Font..."
+        brew install --cask font-hack-nerd-font
+    else
+        echo "  Hack Nerd Font already installed"
+    fi
+
+    # Install Symbols Nerd Font (for icons)
+    if ! ls "$FONT_DIR"/SymbolsNerdFont* &> /dev/null; then
+        echo "  Installing Symbols Nerd Font..."
+        brew install --cask font-symbols-only-nerd-font
+    else
+        echo "  Symbols Nerd Font already installed"
+    fi
+
 else
     echo "Non-macOS detected. sketchybar, aerospace, and ghostty are macOS only."
     echo "Please manually install tmux and stow."
@@ -153,6 +191,12 @@ fi
 if backup_dir_if_exists ~/.config/ghostty "ghostty"; then
     stow ghostty
     echo "  ghostty configuration stowed"
+fi
+
+# Stow nvim
+if backup_dir_if_exists ~/.config/nvim "nvim"; then
+    stow nvim
+    echo "  nvim configuration stowed"
 fi
 
 # Install tpm
