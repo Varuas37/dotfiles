@@ -7,9 +7,9 @@ HOSTNAME=$(hostname -s)
 # Default browser configuration per machine
 case "$HOSTNAME" in
     "Shadows-Mac-mini"|"shadow")
-        export DEFAULT_BROWSER="Zen Browser"
-        export DEFAULT_BROWSER_PATH="/Applications/Zen Browser.app"
-        export DEFAULT_BROWSER_APP_ID="org.zen-browser.app"
+        export DEFAULT_BROWSER="Zen"
+        export DEFAULT_BROWSER_PATH="/Applications/Zen.app"
+        export DEFAULT_BROWSER_APP_ID="app.zen-browser.zen"
         ;;
     *)
         # Default for other machines
