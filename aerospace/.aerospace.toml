@@ -108,7 +108,7 @@ outer.left= 0
 # '''
 
 # App shortcuts
-alt-b = 'exec-and-forget open -a /Applications/Firefox\ Firefox.app'
+alt-b = 'exec-and-forget /bin/bash ~/dotfiles/scripts/open-browser.sh'
 alt-c = 'exec-and-forget open -a /Applications/Zed.app/'
 alt-t = 'exec-and-forget open -a /Applications/Ghostty.app'
 alt-s = 'exec-and-forget open -a /Applications/Slack.app'
@@ -179,6 +179,10 @@ alt-shift-l = ['join-with right', 'mode main']
 # Default space
 [[on-window-detected]]
 if.app-id ='org.mozilla.firefox'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id ='org.zen-browser.app'
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]

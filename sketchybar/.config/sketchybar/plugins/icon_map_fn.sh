@@ -164,6 +164,9 @@ function icon_map() {
   "Firefox")
     icon_result=":firefox:"
     ;;
+  "Zen Browser")
+    icon_result=":zen_browser:"
+    ;;
   "Slack")
     icon_result=":slack:"
     ;;
